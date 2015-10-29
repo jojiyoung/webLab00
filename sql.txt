@@ -1,0 +1,236 @@
+예제4-1)
+mysql> select * from student where major = "Computer Science"
+    -> ;
++------------+-----------+------+---------+------------------+
+| student_id | name      | year | dept_no | major            |
++------------+-----------+------+---------+------------------+
+|   20060002 | Roosevelt |    3 |       1 | Computer Science |
+|   20100003 | Yullia    |    3 |       1 | Computer Science |
+|   20110001 | Chloe     |    2 |       6 | Computer Science |
++------------+-----------+------+---------+------------------+
+3 rows in set (0.00 sec)
+
+예제4-2)
+mysql> select student_id,year,major from student;
++------------+------+-------------------------+
+| student_id | year | major                   |
++------------+------+-------------------------+
+|   20030001 |    4 | Electronic Engineering  |
+|   20040002 |    4 | English Literature      |
+|   20040003 |    3 | Electronic
+Engineering  |
+|   20060001 |    4 | Business
+Administration |
+|   20060002 |    3 | Computer Science        |
+|   20070001 |    4 | Business Administration |
+|   20070002 |    3 | Business Administration |
+|   20070003 |    4 | Law                     |
+|   20070005 |    2 | English Literature      |
+|   20070007 |    2 | Business Administration |
+|   20080003 |    4 | Law                     |
+|   20100001 |    3 | Business Administration |
+|   20100003 |    3 | Computer Science        |
+|   20110001 |    2 | Computer Science        |
+|   20110002 |    2 | Electronic
+Engineering  |
++------------+------+-------------------------+
+15 rows in set (0.00 sec)
+
+
+
+
+예제4-3)
+select * from student where year=3 or year=2;
++------------+------------+------+---------+-------------------------+
+| student_id | name       | year | dept_no | major                   |
++------------+------------+------+---------+-------------------------+
+|   20040003 | Julia      |    3 |       2 | Electronic
+Engineering  |
+|   20060002 | Roosevelt  |    3 |       1 | Computer Science        |
+|   20070002 | James Bond |    3 |       4 | Business Administration |
+|   20070005 | Alicia     |    2 |       5 | English Literature      |
+|   20070007 | Ashlee     |    2 |       4 | Business Administration |
+|   20100001 | Kathy      |    3 |       4 | Business Administration |
+|   20100003 | Yullia     |    3 |       1 | Computer Science        |
+|   20110001 | Chloe      |    2 |       6 | Computer Science        |
+|   20110002 | Lucy       |    2 |       2 | Electronic
+Engineering  |
++------------+------------+------+---------+-------------------------+
+9 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+예제 4-4)
+
+mysql> select s.name
+    -> from student s
+    -> join department d on d.dept_name = s.major
+    -> where d.dept_no =4;
++------------+
+| name       |
++------------+
+| Ellen      |
+| James Bond |
+| Ashlee     |
+| Kathy      |
++------------+
+4 rows in set (0.00 sec)
+
+예제5-1)
+mysql> select*from student  where student_id like '2007%';
++------------+------------+------+---------+-------------------------+
+| student_id | name       | year | dept_no | major                   |
++------------+------------+------+---------+-------------------------+
+|   20070001 | Ellen      |    4 |       4 | Business Administration |
+|   20070002 | James Bond |    3 |       4 | Business Administration |
+|   20070003 | April      |    4 |       3 | Law                     |
+|   20070005 | Alicia     |    2 |       5 | English Literature      |
+|   20070007 | Ashlee     |    2 |       4 | Business Administration |
++------------+------------+------+---------+-------------------------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+예제5-2)mysql> select*from student order by student_id desc;
++------------+------------+------+---------+-------------------------+
+| student_id | name       | year | dept_no | major                   |
++------------+------------+------+---------+-------------------------+
+|   20110002 | Lucy       |    2 |       2 | Electronic
+Engineering  |
+|   20110001 | Chloe      |    2 |       6 | Computer Science        |
+|   20100003 | Yullia     |    3 |       1 | Computer Science        |
+|   20100001 | Kathy      |    3 |       4 | Business Administration |
+|   20080003 | Amy        |    4 |       3 | Law                     |
+|   20070007 | Ashlee     |    2 |       4 | Business Administration |
+|   20070005 | Alicia     |    2 |       5 | English Literature      |
+|   20070003 | April      |    4 |       3 | Law                     |
+|   20070002 | James Bond |    3 |       4 | Business Administration |
+|   20070001 | Ellen      |    4 |       4 | Business Administration |
+|   20060002 | Roosevelt  |    3 |       1 | Computer Science        |
+|   20060001 | Queenie    |    4 |       4 | Business
+Administration |
+|   20040003 | Julia      |    3 |       2 | Electronic
+Engineering  |
+|   20040002 | Selina     |    4 |       5 | English Literature      |
+|   20030001 | Reonardo   |    4 |       2 | Electronic Engineering  |
++------------+------------+------+---------+-------------------------+
+15 rows in set (0.00 sec)
+
+mysql> select*from student order by student_id ;
++------------+------------+------+---------+-------------------------+
+| student_id | name       | year | dept_no | major                   |
++------------+------------+------+---------+-------------------------+
+|   20030001 | Reonardo   |    4 |       2 | Electronic Engineering  |
+|   20040002 | Selina     |    4 |       5 | English Literature      |
+|   20040003 | Julia      |    3 |       2 | Electronic
+Engineering  |
+|   20060001 | Queenie    |    4 |       4 | Business
+Administration |
+|   20060002 | Roosevelt  |    3 |       1 | Computer Science        |
+|   20070001 | Ellen      |    4 |       4 | Business Administration |
+|   20070002 | James Bond |    3 |       4 | Business Administration |
+|   20070003 | April      |    4 |       3 | Law                     |
+|   20070005 | Alicia     |    2 |       5 | English Literature      |
+|   20070007 | Ashlee     |    2 |       4 | Business Administration |
+|   20080003 | Amy        |    4 |       3 | Law                     |
+|   20100001 | Kathy      |    3 |       4 | Business Administration |
+|   20100003 | Yullia     |    3 |       1 | Computer Science        |
+|   20110001 | Chloe      |    2 |       6 | Computer Science        |
+|   20110002 | Lucy       |    2 |       2 | Electronic
+Engineering  |
++------------+------------+------+---------+-------------------------+
+15 rows in set (0.00 sec)
+
+예제5-3)
+mysql> select major
+    -> from student
+    -> group by major
+    -> having avg(year)>3;
++-------------------------+
+| major                   |
++-------------------------+
+| Business
+Administration |
+| Electronic Engineering  |
+| Law                     |
++-------------------------+
+3 rows in set (0.00 sec)
+예제5-4)
+mysql> select name
+    -> from student
+    -> where student_id like '2007%'
+    -> limit 2;
++------------+
+| name       |
++------------+
+| Ellen      |
+| James Bond |
++------------+
+2 rows in set (0.00 sec)
+예제6-1)
+mysql> select roles.role from roles join movies on movie_id=id
+    -> where movies.name ="pi"
+    -> ;
++-------------------------+
+| role                    |
++-------------------------+
+| Man Delivering Suitcase |
+| Brad                    |
+| Transit Cop             |
+| Maximillian Cohen       |
+| Kabbala Scholar         |
+| Moustacheless Man       |
+| Man Presenting Suitcase |
+| Limo Driver             |
+| Kabbala Scholar         |
+| Photographer            |
+| Sol Robeson             |
+| King Neptune            |
+| Farroukh                |
+| Rabbi Cohen             |
+| Kabbala Scholar         |
+| Kabbala Scholar         |
+| Transit Cop             |
+| Lenny Meyer             |
+| Kabbala Scholar         |
+| Jake                    |
+| Ephraim                 |
+| Jenny Robeson           |
+| Mrs. Ovadia             |
+| Marcy Dawson            |
+| Jenna                   |
+| Jenna's Mom             |
+|                         |
+| Devi                    |
++-------------------------+
+28 rows in set (0.00 sec)
+
+
+
